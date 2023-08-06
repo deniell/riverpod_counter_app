@@ -17,6 +17,14 @@ class CounterPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Counter'),
+        actions: [
+          IconButton(
+              onPressed: () {
+                ref.invalidate(counterProvider);
+              },
+              icon: const Icon(Icons.refresh),
+          )
+        ],
       ),
       body: Center(
         child: Text(
