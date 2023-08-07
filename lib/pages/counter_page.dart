@@ -14,6 +14,35 @@ class CounterPage extends ConsumerWidget {
     //   - something like setState() but automatic
     final int counter = ref.watch(counterProvider);
 
+    ref.listen(
+      counterProvider,
+      // "next" is referring to the new state.
+      // The "previous" state is sometimes useful for logic in the callback.
+      (previous, next) {
+        if (next >= 5) {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: const Text('Warning'),
+                content: const Text(
+                  'Counter dangerously high. Consider resetting it.'
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('OK'),
+                  )
+                ],
+              );
+            },
+          );
+        }
+      },
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Counter'),

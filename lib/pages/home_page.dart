@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:riverpod_counter_app/pages/auto_counter_page.dart';
 import 'package:riverpod_counter_app/pages/counter_page.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,15 +12,31 @@ class HomePage extends StatelessWidget {
         title: const Text('Home'),
       ),
       body: Center(
-        child: ElevatedButton(
-          child: const Text('Go to Counter Page'),
-          onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: ((context) => const CounterPage()),
-              ),
-            );
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            ElevatedButton(
+              child: const Text('Go to Counter Page'),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: ((context) => const CounterPage()),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              child: const Text('Go to Auto Counter Page'),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: ((context) => const AutoCounterPage()),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
       ),
     );
