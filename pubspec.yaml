@@ -13,6 +13,7 @@ dependencies:
     sdk: flutter
 
   flutter_riverpod: ^2.3.6
+  hooks_riverpod: ^2.3.7
 
 dev_dependencies:
   flutter_test:
