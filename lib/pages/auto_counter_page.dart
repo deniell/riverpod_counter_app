@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_counter_app/main.dart';
+import 'package:riverpod_counter_app/providers/auto_counter_provider.dart';
 
 // ConsumerWidget is like a StatelessWidget
 // but with a WidgetRef parameter added in the build method.
