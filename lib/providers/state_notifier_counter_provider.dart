@@ -14,7 +14,7 @@ extension OptionalInfixAdition<T extends num> on T? {
 class Counter extends StateNotifier<int?> {
   Counter() : super(null);
   void increment() => state = state == null ? 1 : state + 1;
-  int? get value => state;
+  void refresh() => state = null;
 }
 
 final stateNotifierCounterProvider = StateNotifierProvider<Counter, int?>(

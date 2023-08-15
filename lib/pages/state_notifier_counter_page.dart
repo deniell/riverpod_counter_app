@@ -10,19 +10,20 @@ class StateNotifierCounterPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('State Notifier Counter'),
-        // actions: [
-        //   IconButton(
-        //     onPressed: () {
-        //     },
-        //     icon: const Icon(Icons.refresh),
-        //   )
-        // ],
+        actions: [
+          IconButton(
+            onPressed: () {
+              ref.read(stateNotifierCounterProvider.notifier).refresh();
+            },
+            icon: const Icon(Icons.refresh),
+          )
+        ],
       ),
       body: Center(
         child: Consumer(
           builder: (context, ref, child) {
             final count = ref.watch(stateNotifierCounterProvider);
-            final text = count == null ? "Press the button" : count;
+            final text = count ?? "Press the button";
             return Text(
               text.toString(),
               style: Theme.of(context).textTheme.displayMedium,

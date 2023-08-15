@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:riverpod_counter_app/pages/auto_counter_page.dart';
 import 'package:riverpod_counter_app/pages/counter_page.dart';
 import 'package:riverpod_counter_app/pages/date_time_page.dart';
+import 'package:riverpod_counter_app/pages/state_notifier_counter_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -33,6 +34,17 @@ class HomePage extends StatelessWidget {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: ((context) => const AutoCounterPage()),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              child: const Text('Go to State Notifier Counter Page'),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: ((context) => const StateNotifierCounterPage()),
                   ),
                 );
               },
