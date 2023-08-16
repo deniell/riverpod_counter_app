@@ -4,6 +4,6 @@ typedef WeatherEmoji = String;
 
 enum City {Stockholm, Paris, Tokyo,}
 
-final weatherProvider = FutureProvider<WeatherEmoji>((ref) {
-
-});
+// final weatherProvider = FutureProvider<WeatherEmoji>((ref) {
+//
+// });
