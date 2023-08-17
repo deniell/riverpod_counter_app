@@ -8,12 +8,15 @@ class ClockPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final currentTime = ref.watch(clockProvider.notifier);
-    final timeFormated = DateFormat.Hms().format(currentTime);
+    final currentTime = ref.watch(clockProvider);
+    final timeFormatted = DateFormat.Hms().format(currentTime);
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Clock'),
+      ),
       body: Center(
         child: Text(
-          timeFormated,
+          timeFormatted,
           style: Theme.of(context).textTheme.headlineMedium,
         ),
       ),
