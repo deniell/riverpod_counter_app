@@ -15,15 +15,19 @@ Future<WeatherEmoji> getWeather(City city) {
   );
 }
 
+// UI writes to and reads from this
 final currentCityProvider = StateProvider<City?>((ref) => null);
 
-const unknownWeatherEmoji = '';
+const unknownWeatherEmoji = 'unknown';
 
-final weatherProvider = FutureProvider<WeatherEmoji>((ref) {
-  final city = ref.watch(currentCityProvider);
-  if (city != null) {
-    return getWeather(city);
-  } else {
-    return unknownWeatherEmoji;
-  }
-});
+// UI reads this
+final weatherProvider = FutureProvider<WeatherEmoji>(
+  (ref) {
+    final city = ref.watch(currentCityProvider);
+    if (city != null) {
+      return getWeather(city);
+    } else {
+      return unknownWeatherEmoji;
+    }
+  },
+);
