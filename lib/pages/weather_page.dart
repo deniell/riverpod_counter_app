@@ -21,7 +21,10 @@ class WeatherPage extends ConsumerWidget {
                 style: const TextStyle(fontSize: 40),
               ),
               error: (_, __) => const Text('Error'),
-              loading: loading
+              loading: () => const Padding(
+                padding: EdgeInsets.all(8),
+                child: CircularProgressIndicator(),
+              )
           ),
           Expanded(
             child: ListView.builder(
@@ -30,13 +33,20 @@ class WeatherPage extends ConsumerWidget {
                 final city = City.values[index];
                 final isSelected = city == ref.watch(currentCityProvider);
                 return ListTile(
-                  title: Text(city.toString()),
+                  title: Text(
+                    city.name,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   trailing: isSelected
                       ? const Icon(Icons.check_box)
                       : const Icon(Icons.check_box_outline_blank),
                   onTap: () {
                     ref.read(currentCityProvider.notifier).state = city;
                   },
+                  contentPadding: const EdgeInsets.symmetric(horizontal: 50),
                 );
               }
             ),
