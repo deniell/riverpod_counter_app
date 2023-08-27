@@ -76,7 +76,7 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              child: const Text('Go Weather Page'),
+              child: const Text('Go to Weather Page'),
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(
@@ -87,7 +87,7 @@ class HomePage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              child: const Text('Go Names Pag'),
+              child: const Text('Go to Names Page'),
               onPressed: () {
                 Navigator.of(context).push(
                   MaterialPageRoute(

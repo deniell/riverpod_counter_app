@@ -1,10 +1,9 @@
-
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final tickerProvider = StreamProvider(
     (ref) => Stream.periodic(
       const Duration(seconds: 1,),
-      (i) => i +1,
+      (i) => i + 1,
     ),
 );
 
