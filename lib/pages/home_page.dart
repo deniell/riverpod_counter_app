@@ -4,6 +4,7 @@ import 'package:riverpod_counter_app/pages/clock_page.dart';
 import 'package:riverpod_counter_app/pages/counter_page.dart';
 import 'package:riverpod_counter_app/pages/date_time_page.dart';
 import 'package:riverpod_counter_app/pages/names_page.dart';
+import 'package:riverpod_counter_app/pages/persons_page.dart';
 import 'package:riverpod_counter_app/pages/state_notifier_counter_page.dart';
 import 'package:riverpod_counter_app/pages/weather_page.dart';
 
@@ -92,6 +93,17 @@ class HomePage extends StatelessWidget {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: ((context) => const NamesPage()),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              child: const Text('Go to Persons Page'),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: ((context) => const PersonsPage()),
                   ),
                 );
               },
