@@ -13,10 +13,10 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         home: ProviderScope(
-          child: NamesPage(),
           overrides: [
-            namesProvider.overrideWithProvider(Provider((ref) => ['John', 'Doe'])),
+            namesProvider.overrideWith((ref) => ['John', 'Doe']),
           ],
+          child: const NamesPage(),
         ),
       ),
     );
@@ -37,7 +37,6 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         home: ProviderScope(
-          child: const NamesPage(),
           overrides: [
             namesProvider.overrideWithProvider(
               FutureProvider.autoDispose<List<String>>((ref) async {
@@ -46,6 +45,7 @@ void main() {
               }),
             ),
           ],
+          child: const NamesPage(),
         ),
       ),
     );
