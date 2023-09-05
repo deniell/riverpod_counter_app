@@ -6,21 +6,28 @@ Future<Person?> unfollowDialog({
   required BuildContext context,
 }) async
 {
+  final GlobalKey<UpdatePersonState> updatePersonKey =
+      GlobalKey<UpdatePersonState>();
+  final UpdatePerson updatePerson = UpdatePerson(key: updatePersonKey);
+
   return showDialog<Person?>(
     context: context,
     builder: (BuildContext context)
     {
       return AlertDialog(
         title: const Text('Create a person'),
-        content: const UpdatePerson(),
+        content: updatePerson,
         actions: <Widget>[
           TextButton(
             child: const Text('Cancel'),
-            onPressed: () {},
+            onPressed: () => Navigator.of(context).pop(),
           ),
           TextButton(
-            child: const Text('Create'),
-            onPressed: () {},
+            child: const Text('Save'),
+            onPressed: () {
+              final Person? person = updatePerson.createState.updateUser();
+              Navigator.of(context).pop(person);
+            },
           ),
         ],
       );

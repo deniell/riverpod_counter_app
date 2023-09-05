@@ -10,10 +10,10 @@ class UpdatePerson extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<UpdatePerson> createState() => _UpdatePersonState();
+  State<UpdatePerson> createState() => UpdatePersonState();
 }
 
-class _UpdatePersonState extends State<UpdatePerson> {
+class UpdatePersonState extends State<UpdatePerson> {
   final nameController = TextEditingController();
   final ageController = TextEditingController();
   String? name;
@@ -30,8 +30,6 @@ class _UpdatePersonState extends State<UpdatePerson> {
     super.initState();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -43,9 +41,22 @@ class _UpdatePersonState extends State<UpdatePerson> {
             labelText: 'Enter name heer...',
           ),
           onChanged: (value) => name = value,
-        )
-
+        ),
+        TextField(
+          controller: nameController,
+          decoration: const InputDecoration(
+            labelText: 'Enter age heer...',
+          ),
+          onChanged: (value) => age = int.tryParse(value),
+        ),
       ],
+    );
+  }
+
+  Person? updateUser() {
+    return Person(
+      name: name!,
+      age: age!,
     );
   }
 }
