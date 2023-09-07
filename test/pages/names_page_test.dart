@@ -28,7 +28,7 @@ void main() {
 
   testWidgets('NamesPage displays loading indicator', (tester) async {
     // Define a mock namesProvider that returns loading state
-    final namesProvider = Provider<List<String>>(
+    final namesProvider = FutureProvider.autoDispose<List<String>>(
           (ref) => throw Error(),
       name: 'mockNamesProvider',
     );
@@ -56,7 +56,7 @@ void main() {
 
   testWidgets('NamesPage displays error message', (tester) async {
     // Define a mock namesProvider that returns an error state
-    final namesProvider = Provider<List<String>>(
+    final namesProvider = FutureProvider.autoDispose<List<String>>(
           (ref) => throw Error(),
       name: 'mockNamesProvider',
     );

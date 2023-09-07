@@ -54,9 +54,18 @@ class UpdatePersonState extends State<UpdatePerson> {
   }
 
   Person? updateUser() {
-    return Person(
-      name: name!,
-      age: age!,
-    );
+    if (name != null && age != null) {
+      if (widget.existingPerson != null) {
+        // we have existing person, update it
+        Person newPerson = widget.existingPerson!.updated(name, age);
+        return newPerson;
+      } else {
+        // no existing person, create a new one
+        final newPerson = Person(name: name!, age: age!);
+        return newPerson;
+      }
+    } else {
+      return null;
+    }
   }
 }

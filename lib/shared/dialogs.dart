@@ -25,7 +25,7 @@ Future<Person?> unfollowDialog({
           TextButton(
             child: const Text('Save'),
             onPressed: () {
-              final Person? person = updatePerson.createState.updateUser();
+              final Person? person = updatePersonKey.currentState!.updateUser();
               Navigator.of(context).pop(person);
             },
           ),
