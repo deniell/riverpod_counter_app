@@ -43,7 +43,7 @@ class UpdatePersonState extends State<UpdatePerson> {
           onChanged: (value) => name = value,
         ),
         TextField(
-          controller: nameController,
+          controller: ageController,
           decoration: const InputDecoration(
             labelText: 'Enter age heer...',
           ),
