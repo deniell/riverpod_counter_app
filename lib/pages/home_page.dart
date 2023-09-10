@@ -3,6 +3,7 @@ import 'package:riverpod_counter_app/pages/auto_counter_page.dart';
 import 'package:riverpod_counter_app/pages/clock_page.dart';
 import 'package:riverpod_counter_app/pages/counter_page.dart';
 import 'package:riverpod_counter_app/pages/date_time_page.dart';
+import 'package:riverpod_counter_app/pages/films_page/films_page.dart';
 import 'package:riverpod_counter_app/pages/names_page.dart';
 import 'package:riverpod_counter_app/pages/persons_page.dart';
 import 'package:riverpod_counter_app/pages/state_notifier_counter_page.dart';
@@ -104,6 +105,17 @@ class HomePage extends StatelessWidget {
                 Navigator.of(context).push(
                   MaterialPageRoute(
                     builder: ((context) => const PersonsPage()),
+                  ),
+                );
+              },
+            ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              child: const Text('Go to Films Page'),
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: ((context) => const FilmsPage()),
                   ),
                 );
               },

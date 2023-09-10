@@ -23,9 +23,9 @@ class PersonsPage extends ConsumerWidget {
                 title: GestureDetector(
                   onTap: () async {
                     final updatedPerson = await personDialog(
-                          context: context,
-                          existingPerson: person,
-                      );
+                      context: context,
+                      existingPerson: person,
+                    );
                     if (updatedPerson != null) {
                       dataModel.update(updatedPerson);
                     }

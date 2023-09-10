@@ -20,3 +20,4 @@ StateProvider
 StateNotifierProvider
 StreamProvider
 FutureProvider
+ChangeNotifierProvider
