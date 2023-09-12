@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_counter_app/models/film.dart';
+import 'package:riverpod_counter_app/providers/films_provider.dart';
 
-class FilmsWidget extends ConsumerWidget {
+class FilmsList extends ConsumerWidget {
   final AlwaysAliveProviderBase<Iterable<Film>> provider;
-  const FilmsWidget({
+  const FilmsList({
     required this.provider,
     Key? key,
   }) : super(key: key);
@@ -26,10 +27,11 @@ class FilmsWidget extends ConsumerWidget {
                 trailing: IconButton(
                   icon: favoriteIcon,
                   onPressed: () {
-
+                    final isFavorite = !film.isFavorite;
+                    ref.read(allFilmsProvider.notifier).update(film, isFavorite);
                   },
                 ),
-              )
+              );
             },
         ),
     );
